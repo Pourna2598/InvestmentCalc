@@ -1,0 +1,25 @@
+@if (!results){
+<p class="center">
+    Please enter some values and press "Track"
+</p>
+} @else {
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Efficiency</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (result of results; track result.dateSpent) {
+         <tr>
+            <td>{{result.dateSpent}}</td>
+            <td>{{result.category}}</td>
+            <td>{{result.resultMsg}}</td>
+         </tr>}
+    </tbody>
+</table>
+}
+
+

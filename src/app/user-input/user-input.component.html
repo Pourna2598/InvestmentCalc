@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit()">
+    <div class="input-group">
+        <p>
+            <label for="expense">Expense Amount</label>
+            <input id="expense" name="expense" type="number" [(ngModel)]="enteredInitialAmount" />
+        </p>
+        <p>
+            <label for="category">Category</label>
+            <input id="category" name="category" type="text" [(ngModel)]="enteredCategory"/>
+        </p>
+        <p>
+            <label for="expected-expense">Expected Expense Amount</label>
+            <input id="expected-expense" name="expected-expense" type="number" [(ngModel)]="expectedExpense" />
+        </p>
+        <p>
+            <label for="duration">Date</label>
+            <input id="duration" name="duration" type="date" [(ngModel)]="dateSpent" />
+        </p>
+    </div>
+    <p>
+        <button>Track</button>
+    </p>
+</form>
