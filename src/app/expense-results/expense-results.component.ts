@@ -4,8 +4,7 @@ import { ExpenseResult } from '../expense-results.service';
 
 @Component({
   selector: 'app-expense-results',
-  standalone: true,
-  imports: [],
+  standalone: false,
   templateUrl: './expense-results.component.html',
   styleUrl: './expense-results.component.css',
 })
