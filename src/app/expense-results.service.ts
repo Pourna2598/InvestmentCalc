@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { ExpenseData, ResultData } from "./expense-data.model";
+import { Injectable, signal } from '@angular/core';
+import { ExpenseData, ResultData } from './expense-data.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class ExpenseResult {
-    resultData  : ResultData[] =[]
- calculateEfficiencyScore(data: ExpenseData) {
+  resultData = signal<ResultData[]|undefined>(undefined);
+  calculateEfficiencyScore(data: ExpenseData) {
     //destructuring data
     const { expense, category, expectedExpense, dateSpent } = data;
     const rawEfficiency = (expectedExpense - expense) / expectedExpense;
@@ -19,8 +19,10 @@ export class ExpenseResult {
     } else {
       resultMsg = `🔴 Over budget. Score: ${efficiency}`;
     }
-    //alert(resultMsg);
-    this.resultData.push({ dateSpent, category, resultMsg });
-    //console.log(this.resultsData)
+    //this.resultData.push({ dateSpent, category, resultMsg });
+    //for signals
+    this.resultData.update(data => [{dateSpent:"",category:"",resultMsg:""},
+          { dateSpent, category, resultMsg }
+    ]);
   }
 }
